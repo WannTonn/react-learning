@@ -6,8 +6,10 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "antd": "^4.16.6",
     "axios": "^0.21.1",
     "customize-cra": "^1.0.0",
+    "lodash": "^4.17.21",
     "react": "^17.0.2",
     "react-app-rewired": "^2.1.8",
     "react-dom": "^17.0.2",
@@ -38,5 +40,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy" : "http://music.163.com/"
+  "proxy": "http://music.163.com/"
 }

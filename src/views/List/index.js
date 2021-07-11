@@ -8,6 +8,8 @@ import React, { Component, Fragment } from "react"
 import ListItem from "./item";
 // import { Provider } from "@/context";
 import { getMusicList } from "@/api/list";
+// import { debounce } from "@/utils/util.js"; 自己搓的debounce ,不能识别this。
+import {debounce} from "lodash";
 const ContextName = React.createContext('walking in the sun');
 class List extends Component {
   constructor(props) {
@@ -17,31 +19,37 @@ class List extends Component {
       list: [{ name: 'aaaa' }, { name: 'the sound of silence' }],
       isShow: false
     }
+      this.handleNameChange = this.handleNameChange.bind(this);
+      this.handleNameChangeDebounce = debounce(this.emitChange, 500 , false);
   }
 
   componentDidMount() {
-    console.log('componentDidMount', '---组件挂载完成---');
+    console.log('componentDidMount', '---父组件挂载完成---');
     // this.handleGetSongList();
   }
-
+  componentWillUnmount() {
+    // this.handleNameChangeDebounce.cancel();
+  }
   shouldComponentUpdate() {
-    console.log('shouldComponentUpdate', '---组件发生改变前执行---');
+    console.log('shouldComponentUpdate', '---父组件发生改变前执行---');
     return true; // 同意 / 不同意组件更新
   }
   /* componentWillUpdate() {
     console.log('component will update')
   } */
   componentDidUpdate() {
-    console.log('component did update');
+    console.log('--- 父组件 component did update ---');
   }
+  componentWillReceiveProps
   render() {
+    console.log('render', '---父组件 render ---');
     return (
       <Fragment>
         <ContextName.Provider value={this.state.name}>
 
           <div>
             <label htmlFor="Name">
-              <input type="text" value={this.state.name} onChange={this.handleNameChange.bind(this)} />
+              <input type="text" defaultValue={this.state.name} onChange={this.handleNameChange} />
               {/* <input type="text" value={this.state.name} onChange={this.handleNameChange.bind(this)} ref={(input)=>{this.input=input}} /> */}
             </label>
             <div className={`wrapper ${this.state.isShow ? 'show' : 'hide'} ${this.state.list.length > 2 ? 'show' : 'hide'}`}>Don't be evil</div>
@@ -64,9 +72,14 @@ class List extends Component {
     )
   }
   handleNameChange(e) {
+    this.handleNameChangeDebounce(e.target.value);
+  }
+  emitChange(e) {
+    console.log(this, 'emitChange');
     this.setState({
-      // name: this.input.name
-      name: e.target.value
+      name: e
+    }, () => {
+      console.log(this.state, '--state--');
     })
   }
   handleClick() {

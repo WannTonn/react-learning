@@ -8,13 +8,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
-import List from './views/List';
+// import List from './views/List';
+import ToDoList from './views/ToDoList'
 import reportWebVitals from './reportWebVitals'; // 前端性能检测工具
 
 ReactDOM.render(
   <React.StrictMode>
     {/* <App /> */}
-    <List></List>
+    {/* <List></List> */}
+    <ToDoList></ToDoList>
   </React.StrictMode>,
   document.getElementById('root')
 );
