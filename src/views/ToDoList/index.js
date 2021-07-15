@@ -2,7 +2,7 @@
  * @Author: WannTonn
  * @Date: 2021-07-11 20:56:39
  * @Description: 
- * @FilePath: /net-music/src/views/ToDoList/index.js
+ * @FilePath: /react-learning/src/views/ToDoList/index.js
  */
 import React, { Component } from "react";
 import 'antd/dist/antd.css';
@@ -29,7 +29,7 @@ class ToDoList extends Component {
             </Menu>
           </Header>
           <Layout>
-            <Sider width={200}>
+            <Sider width={200} style={{background: '#fff'}}>
               <Menu
                mode="inline"
                defaultSelectedKeys={['1']}
@@ -51,7 +51,7 @@ class ToDoList extends Component {
               <Content style={{
                 padding: 24,
                 margin: 0,
-                minHeight: 500
+                minHeight: '90vh'
               }}>
                 Content
               </Content>
