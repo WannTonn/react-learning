@@ -7,8 +7,8 @@ import ToDoList from "@/views/ToDoList";
  * @FilePath: /react-learning/src/router/index.js
  */
 
-export default routes = {
+/* export default routes = {
   path: "/",
   component: ToDoList,
   
-}
+} */

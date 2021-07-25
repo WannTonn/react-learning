@@ -11,17 +11,17 @@ import './index.css';
 // import List from './views/List';
 import ToDoList from './views/ToDoList'
 import reportWebVitals from './reportWebVitals'; // 前端性能检测工具
-import {Router, Route, Link} from "react-router";
-import {routes} from "@/router/index.js"
+// import {Router, Route, Link} from "react-router";
+// import {routes} from "@/router/index.js"
 ReactDOM.render(
   <React.StrictMode>
     {/* <App /> */}
     {/* <List></List> */}
     {/* <ToDoList></ToDoList> */}
-    <Router
+    {/* <Router
       routes={routes}
     >
-    </Router>
+    </Router> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
