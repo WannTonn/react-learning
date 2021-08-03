@@ -43,6 +43,6 @@
     ]
   },
   "proxy": "http://music.163.com/",
-  "homepage": "./react-learning"
+  "homepage": "."
 
 }
