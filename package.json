@@ -42,5 +42,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://music.163.com/"
+  "proxy": "http://music.163.com/",
+  "homepage": "."
+
 }
