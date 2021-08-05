@@ -28,8 +28,10 @@ const TodoList = () => {
     }
   }, [todoList])
   useEffect(() => {
-    const newTodoList = localStorage.getItem('TodoItem');
-    setTodoList(JSON.parse(newTodoList ?? []));
+    let localTodoItem = localStorage.getItem('TodoItem');
+    if (localTodoItem) {
+      setTodoList(localTodoItem ? JSON.parse(localTodoItem) : []);
+    }
   }, [])
   return (
     <div className='App'>
