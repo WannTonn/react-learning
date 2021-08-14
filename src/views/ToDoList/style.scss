@@ -30,10 +30,16 @@
     .addBtn {
       display: block;
       width: 50px;
+      margin-right: 10px;
       cursor: pointer;
+      transition: all .5s ease;
+      &:hover {
+        background-color: #fff;
+      }
     }
   }
   .todoLists {
+    margin-top: 20px;
     .item {
       display: flex;
       justify-content: space-between;
@@ -42,10 +48,12 @@
         margin: 5px 0;
       }
       .delBtn {
-        width: 20px;
-        height: 20px;
-        line-height: 20px;
+        width: 30px;
+        height: 30px;
+        line-height: 26px;
         text-align: center;
+        background-color: rgba(0,0,0,.1);
+        border-radius: 10px;
         cursor: pointer;
         transition: all ease .3s;
         &:hover {

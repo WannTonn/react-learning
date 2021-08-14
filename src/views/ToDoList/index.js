@@ -41,6 +41,9 @@ const TodoList = () => {
 
             <input className='todoInput' type="text" value={inputVal} onChange={(e) => setInputVal(e.target.value)} placeholder='请输入今天要做的事情' />
             <button className='addBtn' type='submit'>Add</button>
+            <button className='addBtn' onClick={() => {
+             todoList.length && setTodoList([]);
+            }}>Clear</button>
           </div>
         </form>
         <div className="todoLists">
@@ -50,7 +53,7 @@ const TodoList = () => {
                 <div className='thing'>
                   {e.name}
                 </div>
-                <div className='delBtn' onClick={() => handleDelThing(e.id)}>x</div>
+                <div className='delBtn' onClick={() => handleDelThing(e.id)}>×</div>
               </div>
             ))
           }
