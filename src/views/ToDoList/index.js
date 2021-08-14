@@ -35,14 +35,15 @@ const TodoList = () => {
   }, [])
   return (
     <div className='App'>
+      <div className="title">Todo List</div>
       <div className="todoListWrapper">
         <form onSubmit={handleSubmit}>
           <div className='inputWrapper'>
 
-            <input className='todoInput' type="text" value={inputVal} onChange={(e) => setInputVal(e.target.value)} placeholder='请输入今天要做的事情' />
-            <button className='addBtn' type='submit'>Add</button>
-            <button className='addBtn' onClick={() => {
-             todoList.length && setTodoList([]);
+            <input className='todoInput' type="text" value={inputVal} onChange={(e) => setInputVal(e.target.value)} placeholder='今天要做什么呢？' />
+            <button type='submit' style={{ display: 'none' }}></button>
+            <button className='btn' onClick={() => {
+              todoList.length && setTodoList([]);
             }}>Clear</button>
           </div>
         </form>

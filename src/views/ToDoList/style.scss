@@ -1,5 +1,5 @@
 .App {
-  margin: 0 auto;
+  margin: 30px auto;
   width: 90%;
   min-height: 90vh;
   border: 1px solid #eee;
@@ -7,16 +7,23 @@
   border-radius: 5px;
   background-color: #f1f1f1;
 }
+.title {
+  font-size: 60px;
+  text-align: center;
+  font-weight: lighter;
+  user-select: none;
+}
 .todoListWrapper {
-  width: 80%;
+  width: 60%;
   margin: 20px auto;
+  user-select: none;
   .inputWrapper {
     display: flex;
     justify-content: space-between;
     .todoInput {
       display: block;
       margin-right: 10px;
-      padding-left: 5px;
+      padding-left: 10px;
       width: 90%;
       line-height: 32px;
       border: 1px solid #f1f1f1;
@@ -27,14 +34,21 @@
         border: 1px solid rgb(149, 206, 227);
       }
     }
-    .addBtn {
+    .btn {
       display: block;
-      width: 50px;
-      margin-right: 10px;
+      width: 60px;
+      border-radius: 25px;
+      border: 0 none;
+      color: #fff;
       cursor: pointer;
       transition: all .5s ease;
+      background-color: #7996a5;
       &:hover {
-        background-color: #fff;
+        
+        // color: #8a9ca5;
+      }
+      &:active {
+        background-color: #8a9ca5;
       }
     }
   }
@@ -43,6 +57,14 @@
     .item {
       display: flex;
       justify-content: space-between;
+      transition: all .3s ease;
+      border-radius: 10px;
+      padding-left: 5px;
+      cursor: pointer;
+      &:hover {
+        color: #fff;
+        background-color: #7996a5;
+      }
       .thing {
         flex-grow: 1;
         margin: 5px 0;
@@ -51,9 +73,11 @@
         width: 30px;
         height: 30px;
         line-height: 26px;
+        font-size: 20px;
         text-align: center;
-        background-color: rgba(0,0,0,.1);
-        border-radius: 10px;
+        background-color: #7996a5;
+        color: #fff;
+        border-radius: 30px;
         cursor: pointer;
         transition: all ease .3s;
         &:hover {
