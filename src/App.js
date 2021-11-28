@@ -2,8 +2,7 @@ import React from 'react';
 import './App.scss';
 import { Tabs } from 'antd';
 import TodoList from './views/ToDoList';
-import Clipboard from './views/Clipboard';
-// import Animation from './views/Animation';
+import Animation from './views/Animation';
 const navs = [
   {
     key: 1,
