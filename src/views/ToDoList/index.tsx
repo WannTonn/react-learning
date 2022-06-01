@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-
+import { CheckOutlined } from '@ant-design/icons';
 import './style.scss';
 
 const TodoList = () => {
@@ -19,6 +19,9 @@ const TodoList = () => {
   }
   const handleDelThing = (e) => {
     setTodoList(todoList.filter((todo) => todo.id !== e));
+  }
+  const handleCheckThing = (e) => {
+
   }
   useEffect(() => {
     if (firstRender.current) {
@@ -53,6 +56,10 @@ const TodoList = () => {
               <div className='item' key={e.id}>
                 <div className='thing'>
                   {e.name}
+                </div>
+
+                <div className='checkBtn' onClick={() => handleCheckThing(e.id)}>
+                  <CheckOutlined />
                 </div>
                 <div className='delBtn' onClick={() => handleDelThing(e.id)}>×</div>
               </div>

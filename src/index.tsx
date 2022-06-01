@@ -6,12 +6,10 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App.js';
+import App from './App';
 import 'antd/dist/antd.min.css';
 // import TodoList from './views/ToDoList'
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <App />,
   document.getElementById('root')
 );

@@ -1,8 +1,8 @@
 import React from 'react';
-import './App.scss';
 import { Tabs } from 'antd';
 import TodoList from './views/ToDoList';
 import Animation from './views/Animation';
+import './App.scss';
 const navs = [
   {
     key: 1,
@@ -20,10 +20,10 @@ const { TabPane } = Tabs;
 const App = () => {
   return (
     <>
-      <Tabs defaultActiveKey="2" centered>
+      <Tabs defaultActiveKey="2" centered >
         {
           navs.map(e => (
-            <TabPane tab={e.tab} key={e.key}>
+            <TabPane tab={e.tab} key={e.key} >
               {e.content}
             </TabPane>
           ))
