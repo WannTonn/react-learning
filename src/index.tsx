@@ -8,6 +8,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import 'antd/dist/antd.min.css';
+import './global.scss';
 // import TodoList from './views/ToDoList'
 ReactDOM.render(
   <App />,

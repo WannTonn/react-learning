@@ -17,11 +17,23 @@ const TodoList = () => {
 
     setInputVal('');
   }
-  const handleDelThing = (e) => {
-    setTodoList(todoList.filter((todo) => todo.id !== e));
-  }
-  const handleCheckThing = (e) => {
 
+  /**
+   * @description 删除某个项目
+   * @param
+   */
+  const handleDelThing = (id: number) => {
+    setTodoList(todoList.filter((todo) => todo.id !== id));
+  }
+  /**
+   * @description 完成行项目
+   * @param
+   */
+  const handleCheckThing = (id: number) => {
+    let arr = todoList.map((e) => {
+      return e.id === id ? { ...e, isChecked: true } : e
+    })
+    setTodoList(arr);
   }
   useEffect(() => {
     if (firstRender.current) {
@@ -42,9 +54,8 @@ const TodoList = () => {
       <div className="todoListWrapper">
         <form onSubmit={handleSubmit}>
           <div className='inputWrapper'>
-
             <input className='todoInput' type="text" value={inputVal} onChange={(e) => setInputVal(e.target.value)} placeholder='今天要做什么呢？' />
-            <button type='submit' style={{ display: 'none' }}></button>
+            <button type='submit' style={{ display: 'none' }} />
             <button className='btn' onClick={() => {
               todoList.length && setTodoList([]);
             }}>Clear</button>
@@ -53,15 +64,16 @@ const TodoList = () => {
         <div className="todoLists">
           {
             todoList.map((e, index) => (
-              <div className='item' key={e.id}>
-                <div className='thing'>
+              <div className="item" key={e.id}>
+                <div className={`thing ${e.isChecked ? 'isChecked' : ''}`}>
                   {e.name}
                 </div>
-
-                <div className='checkBtn' onClick={() => handleCheckThing(e.id)}>
-                  <CheckOutlined />
+                <div className="optBox">
+                  {!e.isChecked ? <div className='checkBtn' onClick={() => handleCheckThing(e.id)}>
+                    <CheckOutlined />
+                  </div> : null}
+                  <div className='delBtn' onClick={() => handleDelThing(e.id)}>×</div>
                 </div>
-                <div className='delBtn' onClick={() => handleDelThing(e.id)}>×</div>
               </div>
             ))
           }
