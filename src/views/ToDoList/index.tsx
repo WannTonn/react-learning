@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { CheckOutlined } from '@ant-design/icons';
+import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
+import { Switch } from 'antd';
 import './style.scss';
 
 const TodoList = () => {
@@ -29,9 +30,11 @@ const TodoList = () => {
    * @description 完成行项目
    * @param
    */
-  const handleCheckThing = (id: number) => {
+  const handleCheckThing = (isChecked,id: number) => {
+    console.log(isChecked);
+    
     let arr = todoList.map((e) => {
-      return e.id === id ? { ...e, isChecked: true } : e
+      return e.id === id ? { ...e, isChecked } : e
     })
     setTodoList(arr);
   }
@@ -65,13 +68,13 @@ const TodoList = () => {
           {
             todoList.map((e, index) => (
               <div className="item" key={e.id}>
+                <Switch onChange={(d) => handleCheckThing(d, e.id)} className="switchItem" checked={e.isChecked} checkedChildren={<CheckOutlined />} unCheckedChildren={<CloseOutlined />} size="small" />
+
                 <div className={`thing ${e.isChecked ? 'isChecked' : ''}`}>
                   {e.name}
                 </div>
                 <div className="optBox">
-                  {!e.isChecked ? <div className='checkBtn' onClick={() => handleCheckThing(e.id)}>
-                    <CheckOutlined />
-                  </div> : null}
+                 
                   <div className='delBtn' onClick={() => handleDelThing(e.id)}>×</div>
                 </div>
               </div>

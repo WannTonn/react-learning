@@ -18,7 +18,7 @@
 .todoListWrapper {
   width: 700px;
   margin: 20px auto;
-  user-select: none;
+  // user-select: none;
   .inputWrapper {
     display: flex;
     justify-content: space-between;
@@ -31,7 +31,7 @@
       border: 1px solid #f1f1f1;
       border-radius: 5px;
       box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.5);
-      transition: all 0.5s ease;
+      transition: all 0.3s ease;
       &:hover,
       &:focus,
       &:focus-visible {
@@ -61,12 +61,12 @@
     .item {
       position: relative;
       display: flex;
-      justify-content: space-between;
+      // justify-content: space-between;
       align-items: center;
       margin-bottom: 10px;
       border-radius: 10px;
       padding-left: 10px;
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
       width: 700px;
       z-index: 0;
       &:hover {
@@ -81,9 +81,10 @@
       .thing {
         width: 620px;
         margin: 5px 0;
+        margin-left: 10px;
         z-index: 1;
         word-break: break-all;
-        transition: all .5s ease;
+        transition: all 0.1s ease;
         &.isChecked {
           text-decoration: line-through;
         }
@@ -110,6 +111,7 @@
           transition: all ease 0.3s;
           &:hover {
             color: var(--error-color);
+            transform: rotate(-180deg);
           }
         }
         .checkBtn {
@@ -125,4 +127,9 @@
       }
     }
   }
+  /* :global {
+    .switchItem {
+
+    }
+  } */
 }
