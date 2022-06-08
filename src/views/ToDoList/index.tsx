@@ -74,7 +74,6 @@ const TodoList = () => {
                   {e.name}
                 </div>
                 <div className="optBox">
-                 
                   <div className='delBtn' onClick={() => handleDelThing(e.id)}>×</div>
                 </div>
               </div>

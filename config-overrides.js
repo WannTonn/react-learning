@@ -18,7 +18,6 @@ const addCustommize = () => config => {
   // console.log(config, 18);
   // config.output.path = __dirname + '/docs';
 
-  console.log(config, 21)
   return config;
 }
 module.exports = {
