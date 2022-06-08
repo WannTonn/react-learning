@@ -10,20 +10,29 @@ const {
   disableEsLint,
   addWebpackAlias,
   addLessLoader,
-  addWebpackPlugin
+  addWebpackPlugin,
+  
 } = require("customize-cra");
 const path = require("path");
+const addCustommize = () => config => {
+  // console.log(config, 18);
+  // config.output.path = __dirname + '/docs';
+
+  console.log(config, 21)
+  return config;
+}
 module.exports = {
   webpack: override(
     // 启用装饰器模式
     // addDecoratorsLegacy(),
-    
+
     // 禁用eslint
     disableEsLint(),
     // 配置alias
     addWebpackAlias({
       ["@"]: path.resolve(__dirname, "src")
-    })
+    }),
+    addCustommize()
   ),
   devServer: function(configFunction) {
     return function(proxy, allowedHost) {
