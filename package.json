@@ -28,7 +28,7 @@
   },
   "scripts": {
     "dev": "react-app-rewired start",
-    "build": "concurrently \"react-app-rewired build\" \"wait-on && sh build.sh\" ",
+    "build": "concurrently \"wait-on react-app-rewired build\" \" && sh build.sh\" ",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject"
   },
