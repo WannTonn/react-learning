@@ -8,8 +8,11 @@ mv ./build ./docs
 echo "add changed files"
 git add .
 echo "commit changed files"
-wait git commit -m "feat: update files"
+git commit -m "feat: update files"
+echo "sleep 5 seconds for git commit "
+sleep 5s
 echo "push changed files"
-wait git push origin master
+git push origin master
 echo "sleep 5 seconds for next edit"
+sleep 5s
 git checkout master
