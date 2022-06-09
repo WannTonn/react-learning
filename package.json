@@ -28,7 +28,7 @@
   },
   "scripts": {
     "dev": "react-app-rewired start",
-    "build": "react-app-rewired build",
+    "build": "concurrently \"react-app-rewired build\" \"sh build.sh\" ",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject"
   },
@@ -47,7 +47,9 @@
   "homepage": ".",
   "devDependencies": {
     "awesome-typescript-loader": "^5.2.1",
+    "concurrently": "^7.2.1",
     "source-map-loader": "^3.0.1",
-    "typescript": "^4.7.2"
+    "typescript": "^4.7.2",
+    "wait-on": "^6.0.1"
   }
 }
