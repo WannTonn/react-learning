@@ -13,3 +13,6 @@ echo "sleep 5 seconds for git commit "
 sleep 5s
 echo "push changed files"
 git push origin master
+echo "sleep 5 seconds for next edit"
+sleep 5s
+git checkout master
