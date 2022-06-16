@@ -9,10 +9,10 @@ echo "add changed files"
 git add .
 echo "commit changed files"
 git commit -m "feat: update files"
-echo "sleep 5 seconds for git commit "
-sleep 5s
+echo "sleep 10 seconds for git commit "
+sleep 10s
 echo "push changed files"
 git push origin master
-echo "sleep 5 seconds for next edit"
-sleep 5s
+echo "sleep 10 seconds for next edit"
+sleep 10s
 git checkout master
