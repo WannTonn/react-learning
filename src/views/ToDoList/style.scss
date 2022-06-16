@@ -3,11 +3,8 @@
   padding: 30px 0;
   width: 1000px;
   min-height: 90vh;
-  // border: 1px solid #eee;
   border-radius: 5px;
-  // background: linear-gradient(#525252, #3d72b4);
-  // background-color: var(--background-color);
-  background: rgba(0,0,0,0.15);
+  background: rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   box-shadow: 2px 8px 10px rgba(0, 0, 0, 0.12);
@@ -23,7 +20,6 @@
 .todoListWrapper {
   width: 700px;
   margin: 20px auto;
-  // user-select: none;
   .inputWrapper {
     display: flex;
     justify-content: space-between;
@@ -56,14 +52,13 @@
       color: #fff;
       cursor: pointer;
       transition: all 0.5s ease;
-      // background-color: #7996a5;
-      background-color: rgba(0,0,0,0.15);
+      background-color: rgba(0, 0, 0, 0.15);
       &:hover {
         transform: scale(1.2, 1.2);
         // color: #8a9ca5;
       }
       &:active {
-        background-color: rgba(0,0,0,0.55);
+        background-color: rgba(0, 0, 0, 0.55);
       }
     }
   }
