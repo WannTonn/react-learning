@@ -1,11 +1,14 @@
 .App {
-  margin: 30px auto;
+  margin: 20px auto;
+  padding: 30px 0;
   width: 1000px;
   min-height: 90vh;
   // border: 1px solid #eee;
   border-radius: 5px;
   // background: linear-gradient(#525252, #3d72b4);
-  background-color: var(--background-color);
+  // background-color: var(--background-color);
+  background: rgba(0,0,0,0.15);
+  backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   box-shadow: 2px 8px 10px rgba(0, 0, 0, 0.12);
 }
@@ -27,39 +30,46 @@
     .todoInput {
       display: block;
       margin-right: 10px;
-      padding-left: 10px;
+      padding: 0 10px;
       width: 90%;
       line-height: 32px;
       border: 1px solid #f1f1f1;
       border-radius: 5px;
+      color: #fff;
       box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.5);
       transition: all 0.3s ease;
-      &:hover,
+      background: transparent;
+      &::placeholder {
+        color: #fff;
+      }
+      /* &:hover,
       &:focus,
       &:focus-visible {
         border: 1px solid rgb(149, 206, 227);
-      }
+      } */
     }
     .btn {
       display: block;
       width: 60px;
-      border-radius: 25px;
+      border-radius: 10px;
       border: 0 none;
       color: #fff;
       cursor: pointer;
       transition: all 0.5s ease;
-      background-color: #7996a5;
+      // background-color: #7996a5;
+      background-color: rgba(0,0,0,0.15);
       &:hover {
         transform: scale(1.2, 1.2);
         // color: #8a9ca5;
       }
       &:active {
-        background-color: #8a9ca5;
+        background-color: rgba(0,0,0,0.55);
       }
     }
   }
   .todoLists {
     margin-top: 20px;
+    color: #fff;
     .item {
       position: relative;
       display: flex;
@@ -68,11 +78,13 @@
       border-radius: 10px;
       padding-left: 10px;
       transition: all 0.2s ease;
+      border: 1px solid transparent;
       width: 700px;
       z-index: 0;
       &:hover {
         color: #fff;
-        background-color: #7996a5;
+        // background-color: #7996a5;
+        border-color: #fff;
         .optBox {
           .checkBtn {
             visibility: visible;
@@ -92,22 +104,23 @@
       }
       .optBox {
         position: absolute;
-        right: 0;
+        right: 5px;
         top: 0;
         width: 90px;
+        min-height: 30px;
         display: flex;
         justify-content: flex-end;
         align-items: center;
         z-index: 2;
         .delBtn {
-          width: 30px;
-          height: 30px;
-          line-height: 26px;
+          width: 20px;
+          height: 20px;
+          line-height: 16px;
           font-size: 20px;
           text-align: center;
-          background-color: #7996a5;
+          background-color: rgba(255, 255, 255, 0.2);
           color: #fff;
-          border-radius: 30px;
+          border-radius: 10px;
           cursor: pointer;
           transition: all ease 0.3s;
           &:hover {

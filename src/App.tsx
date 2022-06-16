@@ -18,15 +18,18 @@ const navs = [
 const { TabPane } = Tabs;
 const App = () => {
   return (
-    <Tabs defaultActiveKey="1" centered >
+    <>
+      {/* <Tabs defaultActiveKey="1" centered >
       {
         navs.map(e => (
           <TabPane tab={e.tab} key={e.key} >
-            {e.content}
+          {e.content}
           </TabPane>
-        ))
-      }
-    </Tabs>
+          ))
+        }
+      </Tabs> */}
+      < TodoList />
+    </>
   )
 }
 export default App;
