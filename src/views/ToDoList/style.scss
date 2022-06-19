@@ -72,14 +72,13 @@
       margin-bottom: 10px;
       border-radius: 10px;
       padding-left: 10px;
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
       border: 1px solid transparent;
       width: 700px;
       z-index: 0;
       &:hover {
         color: #fff;
-        // background-color: #7996a5;
-        border-color: #fff;
+        animation: bounding 1.5s linear infinite;
         .optBox {
           .checkBtn {
             visibility: visible;
@@ -141,4 +140,16 @@
 
     }
   } */
+}
+
+@keyframes bounding {
+  0% {
+    border-color: #fff;
+  }
+  50% {
+    border-color: rgba(255,255,255,.15);
+  }
+  100% {
+    border-color: #fff;
+  }
 }
