@@ -1,35 +1,30 @@
 import React from 'react';
-import { Tabs } from 'antd';
+
 import TodoList from './views/ToDoList';
 import Animation from './views/Animation';
-const navs = [
+import { Route, Routes } from 'react-router-dom';
+const routes = [
   {
     key: 1,
-    tab: 'TodoList',
-    content: <TodoList />
+    path: '/',
+    element: <TodoList />
   },
-  /* {
+  {
     key: 2,
-    tab: 'Animation',
-    content: <Animation />
-  }, */
-
+    path: '/animation',
+    element: <Animation />
+  },
 ]
-const { TabPane } = Tabs;
+
 const App = () => {
   return (
-    <>
-      {/* <Tabs defaultActiveKey="1" centered >
+    <Routes>
       {
-        navs.map(e => (
-          <TabPane tab={e.tab} key={e.key} >
-          {e.content}
-          </TabPane>
-          ))
-        }
-      </Tabs> */}
-      < TodoList />
-    </>
+        routes.map((e) => (
+          <Route path={e.path} element={e.element} />
+        ))
+      }
+    </Routes>
   )
 }
 export default App;
