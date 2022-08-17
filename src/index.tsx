@@ -10,7 +10,6 @@ import App from './App';
 import { BrowserRouter, HashRouter } from 'react-router-dom'
 import 'antd/dist/antd.min.css';
 import './global.scss';
-// import TodoList from './views/ToDoList'
 ReactDOM.render(
   <BrowserRouter>
     <App />

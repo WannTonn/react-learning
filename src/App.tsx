@@ -2,7 +2,8 @@ import React from 'react';
 
 import TodoList from './views/ToDoList';
 import Animation from './views/Animation';
-import { Route, Routes } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import NotFoundDom from './views/NotFoundDom';
 const routes = [
   {
     key: 1,
@@ -14,6 +15,11 @@ const routes = [
     path: '/animation',
     element: <Animation />
   },
+  {
+    key: 3,
+    path: '*',
+    element: <NotFoundDom />
+  }
 ]
 
 const App = () => {
@@ -21,7 +27,7 @@ const App = () => {
     <Routes>
       {
         routes.map((e) => (
-          <Route path={e.path} element={e.element} />
+          <Route path={e.path} element={e.element} key={e.key} />
         ))
       }
     </Routes>

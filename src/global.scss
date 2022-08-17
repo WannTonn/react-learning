@@ -1,7 +1,9 @@
 html {
   height: 100vh;
   // background: linear-gradient(#f0f2f0, #000c40);
-
+  iframe {
+    position: unset !important;
+  }
 }
 :global {
   input {
@@ -14,8 +16,17 @@ html {
   display: flex;
   align-items: center;
   min-height: 100vh;
-  background: url('./images/Landscape-585.jpg') no-repeat 50%;
-  background-size: cover;
+  background: repeating-linear-gradient(
+    45deg, #1CB5E0,#2980b9 20px, #000046 0, #2c3e50 300px
+  );
+  /* background: repeating-linear-gradient(
+    45deg, #2980b9, #2c3e50
+  ); */
+ /*  background: repeating-linear-gradient(
+    45deg, #2C3E50, #4CA1AF
+  ); */
+  // background: url('./images/Landscape-585.jpg') no-repeat 50%;
+  // background-size: cover;
 }
 :root {
   --error-color: #ff4d4f;
