@@ -1,0 +1,16 @@
+.wrapper {
+  margin: 0 auto;
+  padding: 20px;
+  width: 80vw;
+  min-height: 800px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  border-radius: 10px;
+  .title {
+    padding-bottom: 20px;
+    font-size: 40px;
+    color: #333
+    // color: #fff;
+  }
+}

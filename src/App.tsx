@@ -2,6 +2,7 @@ import React from 'react';
 
 import TodoList from './views/ToDoList';
 import Animation from './views/Animation';
+import DateTransfer from './views/DateTransfer';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import NotFoundDom from './views/NotFoundDom';
 const routes = [
@@ -19,6 +20,11 @@ const routes = [
     key: 3,
     path: '*',
     element: <NotFoundDom />
+  },
+  {
+    key: 4,
+    path: '/dateTransfer',
+    element: <DateTransfer />
   }
 ]
 
