@@ -1,26 +1,37 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { observer } from 'mobx-react'
-import { Upload, Button, UploadProps, Modal, notification } from 'antd'
+import { Upload, Button, UploadProps, Modal, notification, Form, Input, Select } from 'antd'
 import './style.scss';
 import { RcFile, UploadFile } from 'antd/lib/upload/interface';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import { useRequest } from 'ahooks';
 import { uploadFile } from '../../api/uploader';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import localStorageUtil from '../../utils/localStorageUtil';
 
-
+const { Item } = Form;
 const ImageUploader = () => {
   const [fileList, setFileList] = useState([]);
   const [visible, setVisible] = useState(false);
   const [previewImage, setPreviewImage] = useState('');
   const [previewTitle, setPreviewTitle] = useState('');
+  const [configVisible, setConfigVisible] = useState(false);
   const [urlList, setUrlList] = useState([]);
+
+  const [form] = Form.useForm();
+  const envOptions = [{ label: 'test', value: '1' }, { label: 'prod', value: '2' }]
   const uploadReq = useRequest(uploadFile, {
     onSuccess(res: any) {
       console.log(res);
       if (res.code === 200) {
         setUrlList(res.data)
+      } else {
+        notification.warning({message: '可能是配置有误，请重新配置'})
+        setConfigVisible(true);
       }
+    },
+    onError() {
+
     },
     manual: true
   })
@@ -54,6 +65,19 @@ const ImageUploader = () => {
     setVisible(true);
     setPreviewTitle(url?.substring(url?.lastIndexOf('/') + 1))
   }
+  const handleOpenConfig = () => {
+    setConfigVisible(true);
+    let env = localStorageUtil.getLocalStorage('env');
+    let urlPath = localStorageUtil.getLocalStorage('urlPath');
+    let token = localStorageUtil.getLocalStorage('token');
+    form.setFieldsValue({ env, token, urlPath });
+  }
+  const handleSetConfig = async () => {
+    const values = await form.validateFields();
+    localStorageUtil.setLocalStorageMap(values);
+    notification.success({ message: '保存成功' });
+    setConfigVisible(false);
+  }
   const uploadProps: UploadProps = {
     name: 'file',
     multiple: true,
@@ -80,6 +104,16 @@ const ImageUploader = () => {
 
     uploadReq.run(formData);
   }
+
+  useEffect(() => {
+    let env = localStorageUtil.getLocalStorage('env');
+    let token = localStorageUtil.getLocalStorage('token');
+    let urlPath = localStorageUtil.getLocalStorage('urlPath');
+    if (!env || !token || !urlPath) {
+      notification.warning({message: '首次加载，请先配置对应环境', duration: 4})
+      setConfigVisible(true);
+    }
+  }, [])
   return (
     <div className='container'>
       <div className='cardWrapper'>
@@ -93,6 +127,7 @@ const ImageUploader = () => {
         </div>
       </div>
       <Button block type='primary' style={{ marginBottom: 20 }} loading={uploadReq.loading} onClick={() => handleSubmit()} disabled={!fileList.length}>上传</Button>
+      <Button block onClick={handleOpenConfig} type="primary" style={{ marginBottom: 20 }}>配置接口与token</Button>
       <Button danger block style={{ marginBottom: 20 }} onClick={() => (setFileList([]), setUrlList([]))}>已复制，清空所有</Button>
 
       {
@@ -107,8 +142,8 @@ const ImageUploader = () => {
                     }} />
                     <div className="tools">
                       <CopyToClipboard text={`![](${e})`}
-                        onCopy={() => (notification.destroy(), notification.success({message: '复制成功'}))}>
-                          <Button>复制地址</Button>
+                        onCopy={() => (notification.destroy(), notification.success({ message: '复制成功' }))}>
+                        <Button>复制地址</Button>
                       </CopyToClipboard>
                     </div>
                   </div>
@@ -131,6 +166,25 @@ const ImageUploader = () => {
         <img src={previewImage} width="100%" height="100%" alt="" />
       </Modal>
 
+      <Modal
+        title="配置接口与token"
+        visible={configVisible}
+        onCancel={() => setConfigVisible(false)}
+        onOk={handleSetConfig}
+      >
+        <Form form={form} layout="vertical">
+          <Item label="提交环境" name="env" rules={[{ required: true }]} initialValue="1">
+            <Select options={envOptions} />
+          </Item>
+
+          <Item label="接口路径" name="urlPath" rules={[{ required: true }]}>
+            <Input placeholder='请输入接口路径，eg: /base/upload' allowClear />
+          </Item>
+          <Item label="token" name="token" rules={[{ required: true }]}>
+            <Input placeholder='请输入对应环境的token, 否则无法上传成功' allowClear />
+          </Item>
+        </Form>
+      </Modal>
     </div>
 
   )
