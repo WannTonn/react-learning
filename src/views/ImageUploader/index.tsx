@@ -25,13 +25,11 @@ const ImageUploader = () => {
       console.log(res);
       if (res.code === 200) {
         setUrlList(res.data)
-      } else {
-        notification.warning({message: '可能是配置有误，请重新配置'})
-        setConfigVisible(true);
       }
     },
-    onError() {
-
+    onError(err) {
+      notification.warning({ message: '可能是配置有误，请重新配置' })
+      handleOpenConfig()
     },
     manual: true
   })
@@ -110,7 +108,7 @@ const ImageUploader = () => {
     let token = localStorageUtil.getLocalStorage('token');
     let urlPath = localStorageUtil.getLocalStorage('urlPath');
     if (!env || !token || !urlPath) {
-      notification.warning({message: '首次加载，请先配置对应环境', duration: 4})
+      notification.warning({ message: '首次加载，请先配置对应环境', duration: 4 })
       setConfigVisible(true);
     }
   }, [])

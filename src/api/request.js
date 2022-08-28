@@ -1,4 +1,5 @@
 
+import { notification } from "antd";
 import axios from "axios";
 
 const service = axios.create({
@@ -33,6 +34,7 @@ service.interceptors.response.use(
   },
   error => {
     console.error("请求出错", error)
+    notification.error({message: `请求出错: ${error}`})
   }
 )
 
