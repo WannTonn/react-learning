@@ -22,7 +22,6 @@ const ImageUploader = () => {
   const envOptions = [{ label: 'test', value: '1' }, { label: 'prod', value: '2' }]
   const uploadReq = useRequest(uploadFile, {
     onSuccess(res: any) {
-      console.log(res);
       if (res.code === 200) {
         setUrlList(res.data)
       }
@@ -50,8 +49,6 @@ const ImageUploader = () => {
   }
 
   const beforeUpload = async (file: UploadFile) => {
-    console.log(file);
-
     return false;
   }
 
@@ -93,8 +90,6 @@ const ImageUploader = () => {
   );
 
   const handleSubmit = () => {
-    console.log(fileList);
-
     let formData = new FormData();
     fileList.forEach((e) => {
       formData.append('file', e.originFileObj);
