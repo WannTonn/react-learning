@@ -5,26 +5,32 @@ import Animation from './views/Animation';
 import DateTransfer from './views/DateTransfer';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import NotFoundDom from './views/NotFoundDom';
+import ImageUploader from './views/ImageUploader';
 const routes = [
   {
-    key: 1,
+    key: 'todolist',
     path: '/',
     element: <TodoList />
   },
   {
-    key: 2,
+    key: 'animation',
     path: '/animation',
     element: <Animation />
   },
   {
-    key: 3,
+    key: 'any',
     path: '*',
     element: <NotFoundDom />
   },
   {
-    key: 4,
+    key: 'dateTransfer',
     path: '/dateTransfer',
     element: <DateTransfer />
+  },
+  {
+    key: 'imageUploader',
+    path: '/imageUploader',
+    element: <ImageUploader />
   }
 ]
 

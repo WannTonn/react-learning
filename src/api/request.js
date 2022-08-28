@@ -1,12 +1,6 @@
-/*
- * @Author: WannTonn
- * @Date: 2021-07-04 12:19:07
- * @Description: 
- * @FilePath: /net-music/src/api/request.js
- */
+
 import axios from "axios";
-// axios.defaults.timeout = 100000;
-// axios.defaults.baseURL = ""
+
 const service = axios.create({
   timeout: 60000,
   baseURL: "/api",
@@ -17,9 +11,10 @@ const service = axios.create({
 */
 service.interceptors.request.use(
   (config) => {
-    config.data = JSON.stringify(config.data);
+    // config.data =  JSON.stringify(config.data);
     config.headers = {
-      "Content-Type": "application/json"
+      // "Content-Type": "application/json",
+      ...config.headers,
     }
     return config
   },

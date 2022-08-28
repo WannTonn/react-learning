@@ -29,7 +29,7 @@ module.exports = {
     disableEsLint(),
     // 配置alias
     addWebpackAlias({
-      ["@"]: path.resolve(__dirname, "./src")
+      "@": path.resolve(__dirname, "./src")
     }),
     addCustommize()
   ),
