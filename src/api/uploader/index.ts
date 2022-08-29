@@ -36,7 +36,7 @@ export const uploadFile = (data): any => {
       'Content-Type': `multipart/form-data;boundary=----WebKitFormBoundary${new Date().getTime()}`,
       token,
       // 'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsiMTIyIiwidG9uZ193YW5nIiwiMCJdLCJzdWIiOiJ1c2VyIiwiZXhwIjoxNjYxNjcxMjM3LCJpYXQiOjE2NjE2NDk2Mzd9.i_jaXhhSjmJDDqVMAVbQeiPbhCa1iKyRyi7wMAf9CUU',
-      transformRequest: [data => data]
+      // transformRequest: [data => data]
     }
   })
 }
