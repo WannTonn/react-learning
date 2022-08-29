@@ -24,7 +24,7 @@ const ImageUploader = () => {
   const uploadReq = useRequest(uploadFile, {
     onSuccess(res: any) {
       if (res.code === 200) {
-        setUrlList(res.data)
+        setUrlList(Array.isArray(res.data) ? res.data: [res.data])
       }
     },
     onError(err) {
