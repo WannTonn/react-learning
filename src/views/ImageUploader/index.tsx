@@ -16,6 +16,7 @@ const ImageUploader = () => {
   const [previewImage, setPreviewImage] = useState('');
   const [previewTitle, setPreviewTitle] = useState('');
   const [configVisible, setConfigVisible] = useState(false);
+
   const [urlList, setUrlList] = useState([]);
 
   const [form] = Form.useForm();
@@ -62,10 +63,10 @@ const ImageUploader = () => {
   }
   const handleOpenConfig = () => {
     setConfigVisible(true);
-    let env = localStorageUtil.getLocalStorage('env');
+    // let env = localStorageUtil.getLocalStorage('env');
     let urlPath = localStorageUtil.getLocalStorage('urlPath');
     let token = localStorageUtil.getLocalStorage('token');
-    form.setFieldsValue({ env, token, urlPath });
+    form.setFieldsValue({  token: token?.trim(), urlPath: urlPath?.trim() });
   }
   const handleSetConfig = async () => {
     const values = await form.validateFields();
@@ -99,10 +100,10 @@ const ImageUploader = () => {
   }
 
   useEffect(() => {
-    let env = localStorageUtil.getLocalStorage('env');
+    // let env = localStorageUtil.getLocalStorage('env');
     let token = localStorageUtil.getLocalStorage('token');
     let urlPath = localStorageUtil.getLocalStorage('urlPath');
-    if (!env || !token || !urlPath) {
+    if (!token || !urlPath) {
       notification.warning({ message: '首次加载，请先配置对应环境', duration: 4 })
       setConfigVisible(true);
     }
@@ -166,12 +167,12 @@ const ImageUploader = () => {
         onOk={handleSetConfig}
       >
         <Form form={form} layout="vertical">
-          <Item label="提交环境" name="env" rules={[{ required: true }]} initialValue="1">
+          {/* <Item label="提交环境" name="env" rules={[{ required: true }]} initialValue="1">
             <Select options={envOptions} />
           </Item>
-
+ */}
           <Item label="接口路径" name="urlPath" rules={[{ required: true }]}>
-            <Input placeholder='请输入接口路径，eg: /base/upload' allowClear />
+            <Input placeholder='请输入完整的接口路径，eg: http://abc.com/base/upload' allowClear />
           </Item>
           <Item label="token" name="token" rules={[{ required: true }]}>
             <Input placeholder='请输入对应环境的token, 否则无法上传成功' allowClear />

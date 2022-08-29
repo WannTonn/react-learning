@@ -12,16 +12,17 @@ const getUploadConfig = (data) => {
   let token = localStorageUtil.getLocalStorage('token');
   let urlPath = localStorageUtil.getLocalStorage('urlPath');
   let url, transUrlPath;
-  if (!env || !urlPath) {
+  /* if (!env || !urlPath) {
     transUrlPath = ''
     url = api.znUploadTestUrl;
   } else {
     transUrlPath = urlPath?.[0] === '/' ? urlPath : '/' + urlPath;
     url = (env === '1' ? api.znUploadTestUrl : api.znUploadProdUrl) + transUrlPath;
-  }
+  } */
+  url = urlPath?.trim();
   return {
     url,
-    token
+    token: token?.trim()
   }
 }
 export const uploadFile = (data): any => {
