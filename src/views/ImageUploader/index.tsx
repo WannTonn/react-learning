@@ -129,8 +129,8 @@ const ImageUploader = () => {
           <div className="cardWrapper">
             <div className='previewWrapper'>
               {
-                urlList.map((e) => (
-                  <div className='item'>
+                urlList.map((e, index) => (
+                  <div className='item' key={index}>
                     <img src={e} width="100%" onClick={() => handleResPreview(e)} alt="" onError={(d) => {
                       console.log(d);
                     }} />
