@@ -1,0 +1,14 @@
+.container {
+  width: 80vw;
+  background: #fff;
+  margin: 0 auto;
+  min-height: 50vh;
+  border-radius: 10px;
+}
+
+.children {
+  .item {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}

@@ -6,6 +6,8 @@ import DateTransfer from './views/DateTransfer';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import NotFoundDom from './views/NotFoundDom';
 import ImageUploader from './views/ImageUploader';
+
+import BatchRender from './views/BatchRender';
 const routes = [
   {
     key: 'todolist',
@@ -31,7 +33,13 @@ const routes = [
     key: 'imageUploader',
     path: '/imageUploader',
     element: <ImageUploader />
-  }
+  },
+  {
+    key: 'batchRender',
+    path: '/batchRender',
+    element: <BatchRender />
+  },
+
 ]
 
 const App = () => {
