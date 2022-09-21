@@ -34,6 +34,7 @@ const DateTransfer = () => {
 
   return (
     <div className='wrapper'>
+      <iframe src="https://zhidao.baidu.com/pages/consult/index/login"></iframe>
       <div className='title'>Date Transfer</div>
       <Form form={form} onFinish={handleSubmit}>
         <Item name="inputVal" rules={[{ required: true, message: '请输入时间戳哦, 靓仔' }, {
