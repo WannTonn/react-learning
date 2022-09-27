@@ -9,6 +9,7 @@ const {
   addDecoratorsLegacy,
   disableEsLint,
   addWebpackAlias,
+  addWebpackResolve,
   addLessLoader,
   addWebpackPlugin,
   
@@ -24,21 +25,24 @@ module.exports = {
   webpack: override(
     // 启用装饰器模式
     // addDecoratorsLegacy(),
-
+    
     // 禁用eslint
     disableEsLint(),
     // 配置alias
     addWebpackAlias({
-      "@": path.resolve(__dirname, "./src")
+      "@": path.resolve(__dirname, "src")
+    }),
+    addWebpackResolve({
+      extensions: ['.tsx', '.ts', '.js', '.jsx', '.json']
     }),
     addCustommize()
   ),
-  devServer: function(configFunction) {
+ /*  devServer: function(configFunction) {
     return function(proxy, allowedHost) {
       const config = configFunction(proxy, allowedHost);
       return config;
     }
-  }
+  } */
 }
 
 
