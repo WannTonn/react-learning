@@ -24,7 +24,7 @@ const ImageUploader = () => {
   const uploadReq = useRequest(uploadFile, {
     onSuccess(res: any) {
       if (res.code === 200) {
-        setUrlList(Array.isArray(res.data) ? res.data: [res.data])
+        setUrlList(Array.isArray(res.data) ? res.data : [res.data])
       }
     },
     onError(err) {
@@ -66,11 +66,11 @@ const ImageUploader = () => {
     // let env = localStorageUtil.getLocalStorage('env');
     let urlPath = localStorageUtil.getLocalStorage('urlPath');
     let token = localStorageUtil.getLocalStorage('token');
-    form.setFieldsValue({  token: token?.trim(), urlPath: urlPath?.trim() });
+    form.setFieldsValue({ token: token?.trim(), urlPath: urlPath?.trim() });
   }
   const handleSetConfig = async () => {
     const values = await form.validateFields();
-    localStorageUtil.setLocalStorageMap(values);
+    localStorageUtil.setLocalStorageMap(values, [1, 'y']);
     notification.success({ message: '保存成功' });
     setConfigVisible(false);
   }
@@ -119,11 +119,10 @@ const ImageUploader = () => {
             {uploadButton}
           </Upload>
         </div>
+        <Button block type='primary' style={{ marginBottom: 20 }} loading={uploadReq.loading} onClick={() => handleSubmit()} disabled={!fileList.length}>上传</Button>
+        <Button block onClick={handleOpenConfig} type="primary" style={{ marginBottom: 20 }}>配置接口与token</Button>
+        <Button danger block style={{ marginBottom: 20 }} onClick={() => (setFileList([]), setUrlList([]))}>已复制，清空所有</Button>
       </div>
-      <Button block type='primary' style={{ marginBottom: 20 }} loading={uploadReq.loading} onClick={() => handleSubmit()} disabled={!fileList.length}>上传</Button>
-      <Button block onClick={handleOpenConfig} type="primary" style={{ marginBottom: 20 }}>配置接口与token</Button>
-      <Button danger block style={{ marginBottom: 20 }} onClick={() => (setFileList([]), setUrlList([]))}>已复制，清空所有</Button>
-
       {
         urlList?.length ? (
           <div className="cardWrapper">

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { CheckOutlined, CloseOutlined, RestFilled } from '@ant-design/icons';
+import { CheckOutlined, CloseCircleOutlined, CloseOutlined, RestFilled } from '@ant-design/icons';
 import { Switch, Input } from 'antd';
 import dayjs from 'dayjs';
 import './style.scss';
@@ -77,7 +77,9 @@ const TodoList = () => {
                     {e.name}
                   </div>
                   <div className="optBox">
-                    <div className='delBtn' onClick={() => handleDelThing(e.id)}>×</div>
+                    <div className='delBtn' onClick={() => handleDelThing(e.id)}>
+                      <CloseCircleOutlined />
+                    </div>
                   </div>
                 </div>
               </div>
