@@ -1,5 +1,6 @@
 {
   "extends": "./paths.json",
+
   "compilerOptions": {
     "target": "es5",
     "lib": [
@@ -21,7 +22,10 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "noImplicitAny": false,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": [
     "src"
