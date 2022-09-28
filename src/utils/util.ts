@@ -4,9 +4,9 @@
  * @Description: 
  * @FilePath: /net-music/src/utils/util.js
  */
-export function debounce(func, wait, immediate) {
+export function debounce(func: Function, wait: number, immediate?: boolean) {
   let timeout, args, context, timestamp, result;
-  const later = function() {
+  const later = function () {
     // 距离上次触发时间间隔
     const last = +new Date() - timestamp;
 
@@ -15,13 +15,13 @@ export function debounce(func, wait, immediate) {
       timeout = setTimeout(later, wait - last);
     } else {
       timeout = null;
-      if(!immediate) {
+      if (!immediate) {
         result = func.apply(context, args);
         if (!timeout) context = args = null;
       }
     }
   }
-  return function(...args) {
+  return function (...args) {
     let context;
     timestamp = +new Date();
     const callNow = immediate && !timeout;

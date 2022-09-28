@@ -1,0 +1,10 @@
+.ScreenContainer {
+  height: 100%;
+  transform-origin: 0 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transition: .3s;
+  background-color: red;
+  overflow: hidden;
+}

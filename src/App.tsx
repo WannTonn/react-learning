@@ -1,55 +1,31 @@
 import React from 'react';
+import { Routes, Route, BrowserRouter, redirect } from 'react-router-dom';
 
-import TodoList from '@/views/ToDoList';
-import Animation from '@/views/Animation';
-import DateTransfer from '@/views/DateTransfer';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import NotFoundDom from '@/views/NotFoundDom';
-import ImageUploader from '@/views/ImageUploader';
+import routes from '@/routes'
+interface IRoute {
+  path: string;
+  element: any;
+  routes?: IRoute[];
+  redirect?: string;
+}
+const getRoute = (RouteConfig) => {
 
-import BatchRender from './views/BatchRender';
-const routes = [
-  {
-    key: 'todolist',
-    path: '/',
-    element: <TodoList />
-  },
-  {
-    key: 'animation',
-    path: '/animation',
-    element: <Animation />
-  },
-  {
-    key: 'any',
-    path: '*',
-    element: <NotFoundDom />
-  },
-  {
-    key: 'dateTransfer',
-    path: '/dateTransfer',
-    element: <DateTransfer />
-  },
-  {
-    key: 'imageUploader',
-    path: '/imageUploader',
-    element: <ImageUploader />
-  },
-  {
-    key: 'batchRender',
-    path: '/batchRender',
-    element: <BatchRender />
-  },
+  return RouteConfig.map((route: IRoute) => {
+    const { path, routes, redirect, element } = route;
+    return (
+      <React.Fragment key={path}>
+        <Route path={path} element={element} />
+      </React.Fragment>
+    )
+  })
 
-]
+
+}
 
 const App = () => {
   return (
     <Routes>
-      {
-        routes.map((e) => (
-          <Route path={e.path} element={e.element} key={e.key} />
-        ))
-      }
+      {getRoute(routes)}
     </Routes>
   )
 }

@@ -1,8 +1,6 @@
-/*
- * @Author: WannTonn
- * @Date: 2021-07-04 11:06:58
- * @Description: 重新配置react-app 项目webpack配置
- * @FilePath: /net-music/config-overrides.js
+
+/**
+ * @description 重新配置react-app 项目webpack配置
  */
 const {
   override,

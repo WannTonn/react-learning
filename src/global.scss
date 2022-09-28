@@ -15,7 +15,8 @@ html {
 #root {
   display: flex;
   align-items: center;
-  min-height: 100vh;
+  height: 100%;
+  // min-height: 100vh;
   background: repeating-linear-gradient(
     45deg, #1CB5E0,#2980b9 20px, #000046 0, #2c3e50 300px
   );
