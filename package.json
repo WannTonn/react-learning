@@ -15,6 +15,7 @@
     "copy-to-clipboard": "^3.3.1",
     "customize-cra": "^1.0.0",
     "dayjs": "^1.11.5",
+    "echarts": "^5.4.0",
     "lodash": "^4.17.21",
     "mobx": "^6.3.7",
     "mobx-react": "^7.2.1",

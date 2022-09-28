@@ -11,7 +11,7 @@ interface IProps {
   children: any;
 }
 export default observer((props: IProps) => {
-  const { width = 1366, height = 768, children } = props;
+  const { width = window.innerWidth, height = window.innerHeight, children } = props;
   const [style, setStyle] = useState<{width: number; height: number; transform?}>({width, height});
   /**
  * @description 配置比例
@@ -36,7 +36,7 @@ export default observer((props: IProps) => {
   }
   useEffect(() => {
     window.onresize = debounce(setScale, 500);
-
+    setScale();
     return () => {
       window.onresize = null;
     }
