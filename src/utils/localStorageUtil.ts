@@ -3,8 +3,7 @@
  */
 
 type ITimeUnit = 'm' | 'min' | 'h' | 'd' | 'day' | 'M' | 'month' | 'w' | 'week' | 'y' | 'year';
-const LimitSize = 1 * 1024 * 1024; // 1M utf-16编码单元（字符串长度值
-// const LimitSize = 1 ; // 1M utf-16编码单元（字符串长度值
+const LimitSize = 1 * 1024 * 1024; // 1M utf-16编码单元（字符串长度值)
 /**
  * @description 判断数据类型
  * @param value {any}
@@ -120,8 +119,8 @@ const getAllStorage = () => {
   return arr;
 }
 /**
- * @description 
- * @param
+ * @description 删除单个数据
+ * @param key {string}
  */
 const removeLocalStorage = (key: string) => {
   try {
@@ -130,6 +129,9 @@ const removeLocalStorage = (key: string) => {
     console.error(e);
   }
 }
+/**
+ * @description 清空所有数据
+ */
 const removeAllLocalStorage = () => {
   localStorage.clear()
 }
