@@ -1,11 +1,11 @@
 import React from 'react';
 
-import TodoList from './views/ToDoList';
-import Animation from './views/Animation';
-import DateTransfer from './views/DateTransfer';
+import TodoList from '@/views/ToDoList';
+import Animation from '@/views/Animation';
+import DateTransfer from '@/views/DateTransfer';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import NotFoundDom from './views/NotFoundDom';
-import ImageUploader from './views/ImageUploader';
+import NotFoundDom from '@/views/NotFoundDom';
+import ImageUploader from '@/views/ImageUploader';
 
 import BatchRender from './views/BatchRender';
 const routes = [

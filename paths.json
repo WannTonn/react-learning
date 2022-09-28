@@ -1,6 +1,6 @@
 {
   "complierOptions": {
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     }
