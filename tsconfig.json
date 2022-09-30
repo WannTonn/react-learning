@@ -8,6 +8,7 @@
       "dom.iterable",
       "esnext"
     ],
+    "types": ["node", "react", "react-dom"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -24,10 +25,9 @@
     "noImplicitAny": false,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
     }
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src/**/*"],
+  
 }

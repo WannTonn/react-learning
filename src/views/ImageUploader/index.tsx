@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { observer } from 'mobx-react'
 import { Upload, Button, UploadProps, Modal, notification, Form, Input, Select } from 'antd'
-import './style.scss';
+import style from './style.module.scss';
 import { RcFile, UploadFile } from 'antd/lib/upload/interface';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import { useRequest } from 'ahooks';
@@ -109,10 +109,10 @@ const ImageUploader = () => {
     }
   }, [])
   return (
-    <div className='container'>
-      <div className='cardWrapper'>
-        <p className='title'>Image Uploader</p>
-        <div className="uploadBox">
+    <div className={style.container}>
+      <div className={style.cardWrapper}>
+        <p className={style.title}>Image Uploader</p>
+        <div className={style.uploadBox}>
           <Upload
             {...uploadProps}
           >
@@ -125,15 +125,15 @@ const ImageUploader = () => {
       </div>
       {
         urlList?.length ? (
-          <div className="cardWrapper">
-            <div className='previewWrapper'>
+          <div className={style.cardWrapper}>
+            <div className={style.previewWrapper}>
               {
                 urlList.map((e, index) => (
                   <div className='item' key={index}>
                     <img src={e} width="100%" onClick={() => handleResPreview(e)} alt="" onError={(d) => {
                       console.log(d);
                     }} />
-                    <div className="tools">
+                    <div className={style.tools}>
                       <CopyToClipboard text={`![](${e})`}
                         onCopy={() => (notification.destroy(), notification.success({ message: '复制成功' }))}>
                         <Button>复制地址</Button>
@@ -146,8 +146,6 @@ const ImageUploader = () => {
           </div>
         ) : null
       }
-
-
 
       <Modal
         title={previewTitle}

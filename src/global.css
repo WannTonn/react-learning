@@ -1,0 +1,27 @@
+html {
+  height: 100vh;
+}
+iframe {
+  position: unset !important;
+}
+/* :global {
+  input {
+    &:focus {
+      outline: none;
+    }
+  }
+} */
+#root {
+  display: flex;
+  align-items: center;
+  min-height: 100%;
+  background: repeating-linear-gradient(
+    45deg, #1CB5E0,#2980b9 20px, #000046 0, #2c3e50 300px
+  );
+}
+:root {
+  --error-color: #ff4d4f;
+  --primary-color: #336699;
+  --background-color: #fff;
+  --border-color: #99cccc;
+}

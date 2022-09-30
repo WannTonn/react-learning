@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { CheckOutlined, CloseCircleOutlined, CloseOutlined, RestFilled } from '@ant-design/icons';
 import { Switch, Input } from 'antd';
 import dayjs from 'dayjs';
-import './style.scss';
+import style from './style.module.scss';
 
 const TodoList = () => {
 
@@ -54,30 +54,30 @@ const TodoList = () => {
     }
   }, [])
   return (
-    <div className='App'>
-      <div className="title">Todo List</div>
-      <div className="todoListWrapper">
-        <div className='inputWrapper'>
-          <Input.TextArea autoSize={{ minRows: 1, maxRows: 3 }} value={inputVal} className='todoInput' onChange={(e) => setInputVal(e.target.value)} placeholder='输入今天要做的事情，按下ctrl 或 ⌘ + enter 组合键即可' onKeyDown={handleKeydown} />
-          <div className='btn' onClick={() => {
+    <div className={style.App}>
+      <div className={style.title}>Todo List</div>
+      <div className={style.todoListWrapper}>
+        <div className={style.inputWrapper}>
+          <Input.TextArea autoSize={{ minRows: 1, maxRows: 3 }} value={inputVal} className={style.todoInput} onChange={(e) => setInputVal(e.target.value)} placeholder='输入今天要做的事情，按下ctrl 或 ⌘ + enter 组合键即可' onKeyDown={handleKeydown} />
+          <div className={style.btn} onClick={() => {
             todoList.length && setTodoList([]);
           }}><RestFilled />
           </div>
         </div>
-        <div className="todoLists">
+        <div className={style.todoLists}>
           {
             todoList.map((e, index) => (
-              <div className="item" key={e.id}>
-                <p className='date'>
+              <div className={style.item} key={e.id}>
+                <p className={style.date}>
                   {dayjs(e.id).format('YYYY-MM-DD HH:mm')}
                 </p>
-                <div className="itemBox">
-                  <Switch onChange={(d) => handleCheckThing(d, e.id)} className="switchItem" checked={e.isChecked} checkedChildren={<CheckOutlined />} unCheckedChildren={<CloseOutlined />} size="small" />
+                <div className={style.itemBox}>
+                  <Switch onChange={(d) => handleCheckThing(d, e.id)} className={style.switchItem} checked={e.isChecked} checkedChildren={<CheckOutlined />} unCheckedChildren={<CloseOutlined />} size="small" />
                   <div className={`thing ${e.isChecked ? 'isChecked' : ''}`}>
                     {e.name}
                   </div>
-                  <div className="optBox">
-                    <div className='delBtn' onClick={() => handleDelThing(e.id)}>
+                  <div className={style.optBox}>
+                    <div className={style.delBtn} onClick={() => handleDelThing(e.id)}>
                       <CloseCircleOutlined />
                     </div>
                   </div>
