@@ -4,7 +4,7 @@ import DateTransfer from '@/views/DateTransfer';
 import NotFoundDom from '@/views/NotFoundDom';
 import ImageUploader from '@/views/ImageUploader';
 import DataBoard from '@/views/DataBoard';
-
+import Shitshit from '@/views/Shitshit';
 export default [
   {
     key: 'todolist',
@@ -35,6 +35,11 @@ export default [
     key: 'dataBoard',
     path: '/dataBoard',
     element: <DataBoard />
+  },
+  {
+    key: 'shitshit',
+    path: '/shitshit',
+    element: <Shitshit />
   }
 ];
 

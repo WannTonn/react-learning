@@ -32,4 +32,38 @@ export function debounce(func: Function, wait: number, immediate?: boolean) {
     }
     return result;
   }
-} 
+}
+/**
+ * @description 配置样式
+ * @param
+ */
+export function setStyle(elm, styles) {
+  for (const key in styles) {
+    elm['style'][key] = styles[key];
+  }
+  elm['style']['transition'] = '.225s';
+}
+
+/**
+ * @description 生成随机坐标
+ * @param
+ */
+export function getRandomPosition(min, max) {
+  return getRandomKey(min, max);
+}
+
+/**
+ * @description 生成随机数字
+ * @param
+ */
+export function getRandomKey(min, max) {
+  return parseInt(Math.random() * (max - min + 1) + min)
+}
+
+/**
+ * @description 打乱数组
+ * @param
+ */
+export function setRandomSort(a, b) {
+  return Math.random() > 0.5 ? -1 : 1;
+}
