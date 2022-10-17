@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+.l {
+  flex: 33% 1;
+  height: 100%;
+  background: red;
+}
+.center {
+  flex: 34% 1;
+  height: 100%;
+  background: green;
+}
+.r {
+  flex: 33% 1;
+  height: 100%;
+  background: blue;
+}
