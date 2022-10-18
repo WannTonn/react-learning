@@ -9,6 +9,7 @@ const {
   addWebpackAlias,
   addWebpackResolve,
   addWebpackModuleRule,
+  adjustStyleLoaders,
   addPostcssPlugins,
   addWebpackPlugin,
 
@@ -53,15 +54,13 @@ module.exports = {
       },
       {
         test: /\.(sa|sc)ss$/,
-        use: [
+        use: adjustStyleLoaders([
           loader,
           {
             loader: 'css-loader',
             options: {
               // importLoaders: true,
-              modules: {
-                localIdentName: '[path]__[name]-[hash:base64:4]'
-              },
+              modules: true,
               sourceMap: true
             }
           },
@@ -74,7 +73,7 @@ module.exports = {
               }
             },
           },
-        ]
+        ])
       }
     )
     // addCustommize(),

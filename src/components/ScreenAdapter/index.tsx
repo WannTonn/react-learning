@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { observer } from 'mobx-react';
 import { debounce } from '@/utils/util';
-import './style.scss';
+import './style.module.scss';
 /**
  * @description 
  */
