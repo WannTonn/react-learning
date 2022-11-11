@@ -1,7 +1,9 @@
+import axios from 'axios';
+
 /*
  * @Author: WannTonn
  * @Date: 2021-07-11 09:42:07
- * @Description: 
+ * @Description:
  * @FilePath: /net-music/src/utils/util.js
  */
 export function debounce(func: Function, wait: number, immediate?: boolean) {
@@ -20,7 +22,7 @@ export function debounce(func: Function, wait: number, immediate?: boolean) {
         if (!timeout) context = args = null;
       }
     }
-  }
+  };
   return function (...args) {
     let context;
     timestamp = +new Date();
@@ -31,7 +33,7 @@ export function debounce(func: Function, wait: number, immediate?: boolean) {
       context = args = null;
     }
     return result;
-  }
+  };
 }
 /**
  * @description 配置样式
@@ -57,7 +59,7 @@ export function getRandomPosition(min, max) {
  * @param
  */
 export function getRandomKey(min, max) {
-  return parseInt(Math.random() * (max - min + 1) + min)
+  return parseInt(Math.random() * (max - min + 1) + min);
 }
 
 /**
@@ -66,4 +68,32 @@ export function getRandomKey(min, max) {
  */
 export function setRandomSort(a, b) {
   return Math.random() > 0.5 ? -1 : 1;
+}
+
+/**
+ * @description 下载文件
+ * @param
+ */
+export function downloadFile(url) {
+  axios({
+    method: 'get',
+    url,
+    responseType: 'blob',
+    headers: {
+      'content-type': 'application/octet-stream',
+    },
+  }).then((res) => {
+    if (!res) {
+      return;
+    }
+    let blobUrl = window.URL.createObjectURL(res.data);
+    let link = document.createElement('a');
+    document.body.appendChild(link);
+    link.style.display = 'none';
+    link.href = blobUrl;
+    // link.download = '文件名.mp3'
+    link.click();
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(blobUrl);
+  });
 }
